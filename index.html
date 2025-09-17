@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 北京飞科特迅科技有限公司</title>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        header {
+            background: #0066b3;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            opacity: 0.9;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background: #f9f9f9;
+            padding: 30px;
+        }
+        
+        .contact-info h2 {
+            color: #0066b3;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .info-item i {
+            background: #0066b3;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+            padding: 30px;
+        }
+        
+        .contact-form h2 {
+            color: #0066b3;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0066b3;
+            box-shadow: 0 0 0 2px rgba(0, 102, 179, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        button {
+            background: #ff6b00;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        
+        button:hover {
+            background: #e05a00;
+        }
+        
+        .status-message {
+            margin-top: 20px;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            display: none;
+        }
+        
+        .success {
+            background: #d4edda;
+            color: #155724;
+            display: block;
+        }
+        
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            display: block;
+        }
+        
+        .instructions {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        
+        .instructions h3 {
+            color: #0066b3;
+            margin-bottom: 10px;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 8px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f1f1f1;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            
+            header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>北京飞科特迅科技有限公司</h1>
+            <p>联系我们 - 专业水处理解决方案提供商</p>
+        </header>
+        
+        <div class="content">
+            <div class="contact-info">
+                <h2>联系方式</h2>
+                
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <strong>电话</strong>
+                        <p>13810529009</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-user"></i>
+                    <div>
+                        <strong>联系人</strong>
+                        <p>张德虎</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-building"></i>
+                    <div>
+                        <strong>公司</strong>
+                        <p>北京飞科特迅科技有限公司</p>
+                    </div>
+                </div>
+                
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <strong>地址</strong>
+                        <p>北京市</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <h2>发送咨询</h2>
+                
+                <form id="emailForm">
+                    <div class="form-group">
+                        <label for="name">您的姓名</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">联系电话</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">电子邮箱</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">您的需求</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    
+                    <button type="submit">提交咨询</button>
+                </form>
+                
+                <div id="statusMessage" class="status-message"></div>
+                
+                <div class="instructions">
+                    <h3>使用说明</h3>
+                    <ol>
+                        <li>填写上面的表单并点击"提交咨询"按钮</li>
+                        <li>您的咨询将直接发送到我们的邮箱</li>
+                        <li>我们会在24小时内回复您的咨询</li>
+                        <li>如需紧急联系，请直接拨打我们的电话</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>© 2025 北京飞科特迅科技有限公司 版权所有</p>
+        </footer>
+    </div>
+
+    <script>
+        // 初始化EmailJS
+        (function() {
+            // 使用EmailJS的免费测试账户初始化
+            emailjs.init("YOUR_USER_ID"); // 您需要在https://dashboard.emailjs.com/admin获取实际的User ID
+        })();
+        
+        // 表单提交处理
+        document.getElementById('emailForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const submitButton = this.querySelector('button[type="submit"]');
+            const statusMessage = document.getElementById('statusMessage');
+            
+            // 显示加载状态
+            submitButton.disabled = true;
+            submitButton.textContent = '发送中...';
+            statusMessage.style.display = 'none';
+            
+            // 收集表单数据
+            const formData = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value,
+                company: '北京飞科特迅科技有限公司',
+                to_email: 'your-email@example.com' // 替换为实际接收咨询的邮箱
+            };
+            
+            // 使用EmailJS发送邮件
+            emailjs.send('default_service', 'template_12345', formData) // 需要替换为实际的Service ID和Template ID
+                .then(function(response) {
+                    // 显示成功消息
+                    statusMessage.textContent = '咨询提交成功！我们会尽快回复您。';
+                    statusMessage.className = 'status-message success';
+                    statusMessage.style.display = 'block';
+                    
+                    // 重置表单
+                    document.getElementById('emailForm').reset();
+                    
+                    // 恢复按钮状态
+                    submitButton.disabled = false;
+                    submitButton.textContent = '提交咨询';
+                }, function(error) {
+                    // 显示错误消息
+                    statusMessage.textContent = '发送失败，请稍后重试或直接拨打我们的电话。';
+                    statusMessage.className = 'status-message error';
+                    statusMessage.style.display = 'block';
+                    
+                    // 恢复按钮状态
+                    submitButton.disabled = false;
+                    submitButton.textContent = '提交咨询';
+                });
+        });
+    </script>
+    
+    <!-- Font Awesome 图标 -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>
