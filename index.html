@@ -104,75 +104,83 @@
             margin: 15px auto 0;
         }
         
-        /* 导航栏样式 */
+        /* 导航栏样式 - 重点修改部分 */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            transition: var(--transition);
-        }
-        
-        header.scrolled {
-            padding: 5px 0;
-            background-color: rgba(255, 255, 255, 0.98);
+            padding: 10px 0;
         }
         
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 5px 0;
         }
         
         .logo {
             display: flex;
             align-items: center;
+            flex-shrink: 0;
         }
         
         .logo img {
             height: 50px;
-            margin-right: 10px;
+            margin-right: 12px;
         }
         
         .logo h1 {
-            font-size: 22px;
+            font-size: 20px;
             color: var(--primary-color);
             font-weight: bold;
+            line-height: 1.2;
+        }
+        
+        .logo .tagline {
+            font-size: 12px;
+            color: var(--gray-color);
+            font-weight: normal;
+            display: block;
+            margin-top: 2px;
         }
         
         .nav-menu {
             display: flex;
             list-style: none;
+            margin: 0 20px;
             flex-wrap: wrap;
             justify-content: center;
         }
         
         .nav-menu li {
-            margin: 0 10px;
+            margin: 0 8px;
             position: relative;
         }
         
         .nav-menu a {
             color: var(--dark-color);
             font-weight: 500;
-            padding: 5px 0;
+            padding: 10px 12px;
             transition: var(--transition);
-            white-space: nowrap;
             font-size: 15px;
+            border-radius: 4px;
         }
         
         .nav-menu a:hover, .nav-menu a.active {
             color: var(--primary-color);
+            background-color: rgba(0, 102, 179, 0.08);
         }
         
         .nav-menu a::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
             height: 2px;
             background-color: var(--primary-color);
@@ -180,40 +188,179 @@
         }
         
         .nav-menu a:hover::after, .nav-menu a.active::after {
-            width: 100%;
+            width: 70%;
         }
         
         .contact-info {
             display: flex;
             align-items: center;
+            flex-shrink: 0;
         }
         
         .contact-phone {
             background-color: var(--primary-color);
             color: white;
-            padding: 8px 15px;
+            padding: 10px 16px;
             border-radius: 4px;
             font-weight: bold;
             display: flex;
             align-items: center;
             transition: var(--transition);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
         }
         
         .contact-phone:hover {
             background-color: #005396;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
         }
         
         .contact-phone i {
-            margin-right: 5px;
+            margin-right: 8px;
+            font-size: 16px;
         }
         
         .mobile-toggle {
             display: none;
             font-size: 24px;
             cursor: pointer;
+            color: var(--primary-color);
+            background: var(--light-color);
+            width: 42px;
+            height: 42px;
+            border-radius: 4px;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
         }
         
-        /* 主横幅样式 */
+        .mobile-toggle:hover {
+            background-color: rgba(0, 102, 179, 0.1);
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 1080px) {
+            .nav-menu li {
+                margin: 0 5px;
+            }
+            
+            .nav-menu a {
+                padding: 10px 10px;
+                font-size: 14px;
+            }
+            
+            .logo h1 {
+                font-size: 18px;
+            }
+            
+            .logo .tagline {
+                font-size: 11px;
+            }
+            
+            .logo img {
+                height: 45px;
+                margin-right: 10px;
+            }
+            
+            .contact-phone {
+                padding: 8px 14px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 280px;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                padding: 30px 20px;
+                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+                overflow-y: auto;
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-menu li {
+                margin: 10px 0;
+                width: 100%;
+            }
+            
+            .nav-menu a {
+                padding: 12px 15px;
+                font-size: 16px;
+                display: block;
+                background: var(--light-color);
+                border-radius: 6px;
+            }
+            
+            .nav-menu a::after {
+                display: none;
+            }
+            
+            .mobile-toggle {
+                display: flex;
+            }
+            
+            .contact-phone {
+                margin-left: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 5px 0;
+            }
+            
+            .logo img {
+                height: 40px;
+            }
+            
+            .logo h1 {
+                font-size: 16px;
+            }
+            
+            .logo .tagline {
+                font-size: 10px;
+            }
+            
+            .contact-phone span {
+                display: none;
+            }
+            
+            .contact-phone i {
+                margin-right: 0;
+                font-size: 18px;
+            }
+            
+            .contact-phone {
+                padding: 10px;
+                width: 42px;
+                height: 42px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo-text {
+                display: none;
+            }
+            
+            .logo img {
+                margin-right: 0;
+            }
+        }
+
+        /* 以下是原有样式保持不变 */
         .hero {
             background: linear-gradient(rgba(0, 102, 179, 0.8), rgba(0, 102, 179, 0.6)), url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             height: 600px;
@@ -221,7 +368,7 @@
             align-items: center;
             color: white;
             text-align: center;
-            margin-top: 70px;
+            margin-top: 80px;
             position: relative;
         }
         
@@ -776,126 +923,6 @@
             from { opacity: 0; transform: translateY(-50px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
-        /* 响应式设计 */
-        @media (max-width: 1200px) {
-            .nav-menu li {
-                margin: 0 8px;
-            }
-            
-            .nav-menu a {
-                font-size: 14px;
-            }
-            
-            .logo h1 {
-                font-size: 18px;
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .navbar {
-                flex-wrap: wrap;
-            }
-            
-            .nav-menu {
-                order: 3;
-                width: 100%;
-                margin-top: 15px;
-                justify-content: center;
-            }
-            
-            .contact-info {
-                margin-left: auto;
-            }
-            
-            .hero h2 {
-                font-size: 32px;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 10px 0;
-            }
-            
-            .logo h1 {
-                font-size: 16px;
-            }
-            
-            .nav-menu {
-                overflow-x: auto;
-                justify-content: flex-start;
-                padding-bottom: 5px;
-            }
-            
-            .nav-menu::-webkit-scrollbar {
-                height: 4px;
-            }
-            
-            .nav-menu::-webkit-scrollbar-track {
-                background: #f1f1f1;
-            }
-            
-            .nav-menu::-webkit-scrollbar-thumb {
-                background: var(--primary-color);
-                border-radius: 2px;
-            }
-            
-            .hero {
-                height: 500px;
-                margin-top: 120px;
-            }
-            
-            .about-content, .contact-content {
-                flex-direction: column;
-            }
-            
-            .about-text {
-                padding-right: 0;
-                margin-bottom: 30px;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 30px;
-            }
-            
-            .section-title h2 {
-                font-size: 28px;
-            }
-            
-            .contact-phone {
-                padding: 6px 12px;
-                font-size: 14px;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .logo img {
-                height: 40px;
-            }
-            
-            .logo h1 {
-                font-size: 14px;
-            }
-            
-            .nav-menu a {
-                font-size: 13px;
-            }
-            
-            .contact-phone span {
-                display: none;
-            }
-            
-            .contact-phone i {
-                margin-right: 0;
-                font-size: 18px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -905,7 +932,10 @@
             <div class="navbar">
                 <div class="logo">
                     <img src="fkicon.jpg" alt="飞科特迅科技">
-                    <h1>北京飞科特迅科技有限公司</h1>
+                    <div class="logo-text">
+                        <h1>北京飞科特迅科技有限公司</h1>
+                        <span class="tagline">专业水处理解决方案</span>
+                    </div>
                 </div>
                 <ul class="nav-menu">
                     <li><a href="#home" class="active" data-section="home">首页</a></li>
@@ -913,7 +943,7 @@
                     <li><a href="#services" data-section="services">主营业务</a></li>
                     <li><a href="#products" data-section="products">产品中心</a></li>
                     <li><a href="#cases" data-section="cases">成功案例</a></li>
-                    <!-- <li><a href="#news" data-section="news">新闻资讯</a></li> -->
+                    <li><a href="#news" data-section="news">新闻资讯</a></li>
                     <li><a href="#contact" data-section="contact">联系我们</a></li>
                 </ul>
                 <div class="contact-info">
@@ -921,6 +951,9 @@
                         <i class="fas fa-phone"></i>
                         <span>13241733371</span>
                     </a>
+                </div>
+                <div class="mobile-toggle">
+                    <i class="fas fa-bars"></i>
                 </div>
             </div>
         </div>
@@ -1405,10 +1438,8 @@
             const backToTop = document.querySelector('.back-to-top');
             
             if (window.scrollY > 100) {
-                header.classList.add('scrolled');
                 backToTop.classList.add('visible');
             } else {
-                header.classList.remove('scrolled');
                 backToTop.classList.remove('visible');
             }
             
@@ -1435,6 +1466,16 @@
             });
         });
         
+        // 移动端菜单切换
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        mobileToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+        
         // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -1449,6 +1490,13 @@
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
+                    
+                    // 关闭移动端菜单
+                    if (window.innerWidth <= 992) {
+                        navMenu.classList.remove('active');
+                        mobileToggle.querySelector('i').classList.add('fa-bars');
+                        mobileToggle.querySelector('i').classList.remove('fa-times');
+                    }
                 }
             });
         });
